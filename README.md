@@ -11,12 +11,22 @@ Targets can be selected from one our mor inputs:
 - Compute APIs (
 - Arbitrary
 
+
+## Outputs
 After scans complete the outputs can be sent to the following
 - Pure Syslog output
 - JSON TCP Stream (suitable for sending to NXLOG)
 - JSON Files
 - SQS
 - Elasticsearch
+
+# Configuration
+
+# Installation
+
+A simple Ansible playbook will be provided to install and configure on local or remote hosts.
+
+
 
 # What about the Name
 
