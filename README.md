@@ -21,13 +21,11 @@ After scans complete the outputs can be sent to the following
 - PagerDuty Alerts
 
 # Configuration
-
-Coming soon
-
-# Dependencies
+# External Dependencies
 
  - python-libnmap
  - boto
+ - Nmap 
 
 # Installation
 
@@ -36,6 +34,5 @@ A simple Ansible playbook will be provided to install and configure on local or 
 # What about the Name
 
 There were already too many projects with the name aqueduct so I was looking at the names of Roman acqueducts and I ran accross Aqua Appia
-
  - http://www.crystalinks.com/romeaqueducts.html
- 
+ - https://en.wikipedia.org/wiki/Aqueduct_(water_supply)
