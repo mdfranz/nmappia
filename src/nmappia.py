@@ -46,7 +46,7 @@ class ScanEngine(object):
         while self.engine.is_running():
             time.sleep(30)
             print "Scan is %s percent complete" % self.engine.progress
-        
+        syslog.syslog("Completed scan")
 if __name__ == "__main__":
     c = ConfigFile()
     c.generate_targets()
