@@ -1,32 +1,37 @@
 # Nmappia - a port scanning aqueduct
 
 # Purpose
-Channel various inputs of targets to nmap and then distribute them out outputs for indexing or action
+Channel various inputs of targets to nmap and then distribute them out outputs for indexing or notification of changes.
 
 ## Inputs
 
 Targets can be selected from one our mor inputs:
 - Network Lists
 - DNS APIs (Linode, Route53, Zone Transfers)
-- Compute APIs (
+- Compute APIs (EC2)
 - Arbitrary File Lists
-
 
 ## Outputs
 After scans complete the outputs can be sent to the following
 - Pure Syslog output
 - JSON TCP Stream (suitable for sending to NXLOG)
-- JSON Files
-- SQS
+- JSON Dumps
 - Elasticsearch
+- Slack Channels
+- PagerDuty Alerts
 
 # Configuration
+
+Coming soon
+
+# Dependencies
+
+ - python-libnmap
+ - boto
 
 # Installation
 
 A simple Ansible playbook will be provided to install and configure on local or remote hosts.
-
-
 
 # What about the Name
 
