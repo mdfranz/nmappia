@@ -9,7 +9,7 @@ Targets can be selected from one our mor inputs:
 - Network Lists
 - DNS APIs (Linode, Route53, Zone Transfers)
 - Compute APIs (
-- Arbitrary
+- Arbitrary File Lists
 
 
 ## Outputs
