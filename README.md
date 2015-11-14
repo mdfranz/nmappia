@@ -6,23 +6,27 @@ Channel various inputs of targets to nmap and then distribute them out outputs f
 ## Inputs
 
 Targets can be selected from one our mor inputs:
-- Network Lists
-- DNS APIs (Linode, Route53, Zone Transfers)
-- Compute APIs (EC2)
+- Netblock Lists
 - Arbitrary File Lists
+- Compute APIs (EC2)
+- DNS APIs (Linode, Route53, Zone Transfers)
 
 ## Outputs
 After scans complete the outputs can be sent to the following
 - Pure Syslog output
-- JSON TCP Stream (suitable for sending to NXLOG)
-- JSON Dumps
 - Elasticsearch
+- JSON Dumps
+- JSON TCP Stream (suitable for sending to NXLOG)
 - Slack Channels
 - PagerDuty Alerts
 
 # Configuration
-# External Dependencies
 
+Inputs and Outputs and Scan options are configured in nmappia.conf
+
+
+
+# External Dependencies
  - python-libnmap
  - boto
  - Nmap 

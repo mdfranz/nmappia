@@ -21,9 +21,14 @@ class ConfigFile(object):
     def generate_targets(self):
         syslog.syslog("Starting target generation")
 
+        # Read from multiple targets sources
         if self.config['inputs'].has_key('networks'):
             for n in self.config['inputs']['networks']:
                 self.targets.append(n)
+        if self.config['inputs'].has_key('file'):
+            with open(self.config['inputs']['file']) as f:
+                for l in f:
+                    self.targets.append(l)
             
         if self.debug:
             print "=== Targets ==="
@@ -44,11 +49,26 @@ class ScanEngine(object):
         syslog.syslog("Starting scan")
         self.engine.run_background()
         while self.engine.is_running():
-            time.sleep(30)
+            time.sleep(15)
             print "Scan is %s percent complete" % self.engine.progress
         syslog.syslog("Completed scan")
+    
+    def process(self):
+        """parse and pre-process scan results"""
+        
+        try:
+            self.parsed = NmapParser.parse(self.engine.stdout)
+            syslog.syslog("Processing output")
+        except Exception as e:
+            syslog.syslog("Failed to parse output"+e)
+
+        for h in self.parsed.hosts:
+            print h.address
+            
 if __name__ == "__main__":
-    c = ConfigFile()
-    c.generate_targets()
-    se = ScanEngine(c)
+    sc = ConfigFile()
+    sc.generate_targets()
+    se = ScanEngine(sc)
     se.run()
+    se.process()
+    
